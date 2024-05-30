@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="fe000a9f92ce436e83e28b7a18596b67" Name="Diagram1">
+        <EntityTypeShape EntityType="supermarketModel.Bon" Width="1.5" PointX="3" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="supermarketModel.Categorie" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="supermarketModel.Producator" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="supermarketModel.Produs" Width="1.5" PointX="3" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="supermarketModel.ProduseVandute" Width="1.5" PointX="5.25" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="supermarketModel.Stoc" Width="1.5" PointX="5.25" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="supermarketModel.Utilizator" Width="1.5" PointX="0.75" PointY="7.625" IsExpanded="true" />
+        <AssociationConnector Association="supermarketModel.FK_Bon_Utilizator" ManuallyRouted="false" />
+        <AssociationConnector Association="supermarketModel.FK_ProduseVandute_Bon" ManuallyRouted="false" />
+        <AssociationConnector Association="supermarketModel.FK_Produs_Categorie" ManuallyRouted="false" />
+        <AssociationConnector Association="supermarketModel.FK_Produs_Producator" ManuallyRouted="false" />
+        <AssociationConnector Association="supermarketModel.FK_ProduseVandute_Produs" ManuallyRouted="false" />
+        <AssociationConnector Association="supermarketModel.FK_Stoc_Produs" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

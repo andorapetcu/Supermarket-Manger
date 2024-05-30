@@ -1,0 +1,72 @@
+﻿<Window x:Class="Tema3MVVM.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:helpers="clr-namespace:Tema3MVVM.Helpers"
+        Title="Supermarket" Height="600" Width="700">
+    <Window.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="HotPink" Offset="0"/>
+            <GradientStop Color="PeachPuff" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    <Window.Resources>
+        <Style TargetType="TabItem">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="LightPink" Offset="0"/>
+                        <GradientStop Color="Purple" Offset="1"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="35*"/>
+            <ColumnDefinition Width="22*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="141*"/>
+        </Grid.ColumnDefinitions>
+        <TabControl Grid.ColumnSpan="4">
+            <!-- Login Casier -->
+            <TabItem Header="Casier">
+                <Grid>
+                    <Grid.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="HotPink" Offset="0"/>
+                            <GradientStop Color="PeachPuff" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Grid.Background>
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Label Content="Username:" HorizontalAlignment="Left" Margin="0,0,0,5"/>
+                        <TextBox Width="200" Margin="0,0,0,10" Text="{Binding UsernameCasier, UpdateSourceTrigger=PropertyChanged}"/>
+                        <Label Content="Password:" HorizontalAlignment="Left" Margin="0,0,0,5"/>
+                        <PasswordBox Width="200" Margin="0,0,0,20" helpers:PasswordBoxHelper.BindPassword="True" helpers:PasswordBoxHelper.BoundPassword="{Binding PasswordCasier, Mode=TwoWay}"/>
+                        <Button Content="Login" Width="100" Command="{Binding LoginCasierCommand}"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+
+            <!-- Login -->
+            <TabItem Header="Admin">
+                <Grid>
+                    <Grid.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="HotPink" Offset="0"/>
+                            <GradientStop Color="PeachPuff" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Grid.Background>
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Label Content="Username:" HorizontalAlignment="Left" Margin="0,0,0,5"/>
+                        <TextBox Width="200" Margin="0,0,0,10" Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}"/>
+                        <Label Content="Password:" HorizontalAlignment="Left" Margin="0,0,0,5"/>
+                        <PasswordBox Width="200" Margin="0,0,0,20" helpers:PasswordBoxHelper.BindPassword="True" helpers:PasswordBoxHelper.BoundPassword="{Binding Password, Mode=TwoWay}"/>
+                        <Button Content="Login" Width="100" Command="{Binding LoginCommand}"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

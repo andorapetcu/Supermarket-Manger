@@ -1,0 +1,44 @@
+﻿<Window x:Class="Tema3MVVM.CasierWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:Tema3MVVM.ViewModels"
+        Title="Casier" Height="450" Width="800">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="HotPink" Offset="0"/>
+                <GradientStop Color="PeachPuff" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <StackPanel Margin="10">
+            <StackPanel Orientation="Horizontal" Margin="0 0 0 10">
+                <TextBox x:Name="SearchTextBox" Width="200" Margin="0 0 10 0" Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"/>
+                <Button Content="SearchNume" Command="{Binding SearchByNameCommand}" Margin="0 5"/>
+                <Button Content="SearchCodDeBare" Command="{Binding SearchByBarcodeCommand}" Margin="0 5"/>
+                <Button Content="SearchDataExpirare" Command="{Binding SearchByExpirationCommand}" Margin="0 5"/>
+                <Button Content="SearchProducator" Command="{Binding SearchByProducerCommand}" Margin="0 5"/>
+                <Button Content="SearchCategorie" Command="{Binding SearchByCategoryCommand}" Margin="0 5"/>
+                <Button Content="ReloadData" Command="{Binding ReloadTableDataCommand}" Margin="0 5"/>
+            </StackPanel>
+            <DataGrid ItemsSource="{Binding TableData}" SelectedValue="{Binding SelectedTableRow}" AutoGenerateColumns="True" Margin="0 0 0 10"/>
+            <Button Content="Add to Receipt" Command="{Binding AddToReceiptCommand}" Margin="0 0 0 10"/>
+            <StackPanel>
+                <TextBlock Text="Receipt:" FontWeight="Bold"/>
+                <ItemsControl ItemsSource="{Binding CurrentReceipt}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Product.nume_produs}" Width="200"/>
+                                <TextBlock Text="{Binding Quantity}" Width="50"/>
+                                <TextBlock Text="{Binding TotalPrice}" Width="100"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+                <TextBlock Text="{Binding ReceiptTotal}" FontWeight="Bold"/>
+            </StackPanel>
+            <Button Content="Finalize Receipt" Command="{Binding FinalizeReceiptCommand}" IsEnabled="{Binding CanFinalizeReceipt}" Margin="10 0 0 10"/>
+        </StackPanel>
+    </Grid>
+</Window>

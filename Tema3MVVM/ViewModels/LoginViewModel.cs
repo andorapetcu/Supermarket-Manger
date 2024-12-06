@@ -58,6 +58,11 @@ namespace Tema3MVVM.ViewModels
             }
         }
 
+        public void HelloWorld()
+        {
+            Console.WriteLine("HelloWorld");
+        }
+
         public ICommand LoginCommand { get; }
         public ICommand LoginCasierCommand { get; }
 

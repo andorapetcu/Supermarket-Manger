@@ -118,6 +118,11 @@ namespace Tema3MVVM.ViewModels
             }
         }
 
+        public void HelloWorld()
+        {
+            Console.WriteLine("HelloWorld");
+        }
+
 
 
 
